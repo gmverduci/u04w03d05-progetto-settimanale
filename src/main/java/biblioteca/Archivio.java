@@ -8,6 +8,7 @@ import biblioteca.entity.Pubblicazione;
 import biblioteca.entity.Utente;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,81 +24,62 @@ public class Archivio {
     }
 
     public void aggiungiPubblicazione(Pubblicazione pubblicazione) {
-        if (pubblicazioneDAO != null) {
-            pubblicazioneDAO.aggiungiPubblicazione(pubblicazione);
-        } else {
-            System.out.println("Impossibile aggiungere la pubblicazione: DAO non disponibile.");
-        }
+        pubblicazioneDAO.aggiungiPubblicazione(pubblicazione);
     }
 
     public void rimuoviPubblicazione(long id) {
-        if (pubblicazioneDAO != null) {
-            pubblicazioneDAO.rimuoviPubblicazione(id);
-        } else {
-            System.out.println("Impossibile rimuovere la pubblicazione: DAO non disponibile.");
-        }
+        pubblicazioneDAO.rimuoviPubblicazione(id);
     }
 
     public Pubblicazione cercaPubblicazionePerISBN(String isbn) {
-        if (pubblicazioneDAO != null) {
-            return pubblicazioneDAO.cercaPerISBN(isbn);
-        } else {
-            System.out.println("Impossibile cercare la pubblicazione: DAO non disponibile.");
-            return null;
+        Pubblicazione pubblicazione = pubblicazioneDAO.cercaPerISBN(isbn);
+        if (pubblicazione == null) {
+            System.out.println("Pubblicazione non trovata per l'ISBN specificato: " + isbn);
         }
+        return pubblicazione;
     }
 
     public List<Pubblicazione> cercaPubblicazioniPerAnnoPubblicazione(int anno) {
-        if (pubblicazioneDAO != null) {
-            return pubblicazioneDAO.ricercaPerAnnoPubblicazione(anno);
-        } else {
-            System.out.println("Impossibile cercare le pubblicazioni: DAO non disponibile.");
-            return null;
+        List<Pubblicazione> result = pubblicazioneDAO.ricercaPerAnnoPubblicazione(anno);
+        if (result.isEmpty()) {
+            System.out.println("Nessuna pubblicazione trovata per l'anno specificato.");
         }
+        return result;
     }
 
     public List<Pubblicazione> cercaPubblicazioniPerAutore(String autore) {
-        if (pubblicazioneDAO != null) {
-            return pubblicazioneDAO.ricercaPerAutore(autore);
-        } else {
-            System.out.println("Impossibile cercare le pubblicazioni: DAO non disponibile.");
-            return null;
+        List<Pubblicazione> result = pubblicazioneDAO.ricercaPerAutore(autore);
+        if (result.isEmpty()) {
+            System.out.println("Nessuna pubblicazione trovata per l'autore specificato.");
         }
+        return result;
     }
 
     public List<Pubblicazione> cercaPubblicazioniPerTitolo(String titolo) {
-        if (pubblicazioneDAO != null) {
-            return pubblicazioneDAO.ricercaPerTitolo(titolo);
-        } else {
-            System.out.println("Impossibile cercare le pubblicazioni: DAO non disponibile.");
-            return null;
+        List<Pubblicazione> result = pubblicazioneDAO.ricercaPerTitolo(titolo);
+        if (result.isEmpty()) {
+            System.out.println("Nessuna pubblicazione trovata per il titolo specificato.");
         }
+        return result;
     }
 
     public void aggiungiUtente(Utente utente) {
-        if (utenteDAO != null) {
-            utenteDAO.aggiungiUtente(utente);
-        } else {
-            System.out.println("Impossibile aggiungere l'utente: DAO non disponibile.");
-        }
+        utenteDAO.aggiungiUtente(utente);
     }
 
     public void rimuoviUtente(Long id) {
-        if (utenteDAO != null) {
-            utenteDAO.rimuoviUtente(id);
-        } else {
-            System.out.println("Impossibile rimuovere l'utente: DAO non disponibile.");
-        }
+        utenteDAO.rimuoviUtente(id);
     }
 
+
     public Utente cercaUtentePerNumeroTessera(String numeroTessera) {
-        if (utenteDAO != null) {
-            return utenteDAO.cercaPerNumeroTessera(numeroTessera);
-        } else {
-            System.out.println("Impossibile cercare l'utente: DAO non disponibile.");
-            return null;
+        Utente utente = utenteDAO.cercaPerNumeroTessera(numeroTessera);
+        if (utente == null) {
+            System.out.println("Nessun utente trovato per il numero di tessera specificato.");
         }
+        return utente;
     }
+
 
     public void aggiungiPrestito(Prestito prestito) {
         if (prestitoDAO != null) {
@@ -110,30 +92,34 @@ public class Archivio {
 
 
     public List<Prestito> cercaPrestitiPerNumeroTesseraUtente(String numeroTessera) {
-        if (prestitoDAO != null) {
-            return prestitoDAO.cercaPrestitiPerNumeroTesseraUtente(numeroTessera);
-        } else {
-            System.out.println("Impossibile cercare i prestiti: DAO non disponibile.");
-            return null;
+        List<Prestito> prestiti = prestitoDAO.cercaPrestitiPerNumeroTesseraUtente(numeroTessera);
+        if (prestiti == null) {
+            System.out.println("Nessun prestito trovato per il numero di tessera utente specificato.");
+            return Collections.emptyList(); // Restituisce una lista vuota se il DAO restituisce null
         }
+        return prestiti;
     }
 
     public List<Prestito> visualizzaPrestitiScaduti() {
-        if (prestitoDAO != null) {
-            return prestitoDAO.prestitiScaduti();
-        } else {
-            System.out.println("Impossibile visualizzare i prestiti: DAO non disponibile.");
-            return null;
+        List<Prestito> prestitiScaduti = prestitoDAO.prestitiScaduti();
+        if (prestitiScaduti == null) {
+            System.out.println("Nessun prestito scaduto trovato.");
+            return Collections.emptyList(); // Restituisce una lista vuota se il DAO restituisce null
         }
+        return prestitiScaduti;
     }
 
     public List<Pubblicazione> ricercaPubblicazioniInPrestitoPerUtente(String numeroTesseraUtente) {
-            List<Prestito> prestitiUtente = prestitoDAO.cercaPrestitiPerNumeroTesseraUtente(numeroTesseraUtente);
-            return prestitiUtente.stream()
-                    .map(Prestito::getPubblicazione)
-                    .collect(Collectors.toList());
-
+        List<Prestito> prestitiUtente = prestitoDAO.cercaPrestitiPerNumeroTesseraUtente(numeroTesseraUtente);
+        if (prestitiUtente == null || prestitiUtente.isEmpty()) {
+            System.out.println("Nessuna pubblicazione in prestito trovata per l'utente specificato.");
+            return Collections.emptyList(); // Restituisce una lista vuota se il DAO restituisce null o una lista vuota
+        }
+        return prestitiUtente.stream()
+                .map(Prestito::getPubblicazione)
+                .collect(Collectors.toList());
     }
+
 
     public void rimuoviPrestito(String isbn, String numeroTessera) {
         List<Prestito> prestiti = prestitoDAO.cercaPrestitiPerNumeroTesseraUtente(numeroTessera);

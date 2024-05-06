@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47a47bce-7ff0-43be-a8b2-222da4511aee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/Archivio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/dao/PrestitoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/dao/PubblicazioneDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/dao/UtenteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/entity/Libro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/entity/Prestito.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/entity/Pubblicazione.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/entity/Rivista.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/entity/Utente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/biblioteca/enums/Periodicita.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+    <list default="true" id="47a47bce-7ff0-43be-a8b2-222da4511aee" name="Changes" comment="esercizio settimanale">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/biblioteca/Archivio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/biblioteca/Archivio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "gmverduci"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/gmverduci/u04w03d05-progetto-settimanale.git",
+    "accountId": "c8ffae83-7d5a-4b1b-b6f0-274f15cd4bdb"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5
 }]]></component>
@@ -78,6 +74,19 @@
       <option name="presentableId" value="Default" />
       <updated>1714819357638</updated>
     </task>
+    <task id="LOCAL-00001" summary="esercizio settimanale">
+      <option name="closed" value="true" />
+      <created>1714831715959</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714831715959</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="esercizio settimanale" />
+    <option name="LAST_COMMIT_MESSAGE" value="esercizio settimanale" />
   </component>
 </project>
