@@ -34,7 +34,7 @@ public class Archivio {
     public Pubblicazione cercaPubblicazionePerISBN(String isbn) {
         Pubblicazione pubblicazione = pubblicazioneDAO.cercaPerISBN(isbn);
         if (pubblicazione == null) {
-            System.out.println("Pubblicazione non trovata per l'ISBN specificato: " + isbn);
+            System.out.println(STR."Pubblicazione non trovata per l'ISBN specificato: \{isbn}");
         }
         return pubblicazione;
     }
@@ -95,7 +95,7 @@ public class Archivio {
         List<Prestito> prestiti = prestitoDAO.cercaPrestitiPerNumeroTesseraUtente(numeroTessera);
         if (prestiti == null) {
             System.out.println("Nessun prestito trovato per il numero di tessera utente specificato.");
-            return Collections.emptyList(); // Restituisce una lista vuota se il DAO restituisce null
+            return Collections.emptyList();
         }
         return prestiti;
     }
@@ -104,7 +104,7 @@ public class Archivio {
         List<Prestito> prestitiScaduti = prestitoDAO.prestitiScaduti();
         if (prestitiScaduti == null) {
             System.out.println("Nessun prestito scaduto trovato.");
-            return Collections.emptyList(); // Restituisce una lista vuota se il DAO restituisce null
+            return Collections.emptyList();
         }
         return prestitiScaduti;
     }
@@ -113,7 +113,7 @@ public class Archivio {
         List<Prestito> prestitiUtente = prestitoDAO.cercaPrestitiPerNumeroTesseraUtente(numeroTesseraUtente);
         if (prestitiUtente == null || prestitiUtente.isEmpty()) {
             System.out.println("Nessuna pubblicazione in prestito trovata per l'utente specificato.");
-            return Collections.emptyList(); // Restituisce una lista vuota se il DAO restituisce null o una lista vuota
+            return Collections.emptyList();
         }
         return prestitiUtente.stream()
                 .map(Prestito::getPubblicazione)

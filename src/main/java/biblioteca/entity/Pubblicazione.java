@@ -81,4 +81,16 @@ public abstract class Pubblicazione {
     public void setQuantita(int quantita) {
         this.quantita = quantita;
     }
+
+    @Override
+    public String toString() {
+        return "Pubblicazione{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", titolo='" + titolo + '\'' +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", numeroPagine=" + numeroPagine +
+                ", quantita=" + quantita +
+                '}';
+    }
 }
